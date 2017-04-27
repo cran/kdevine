@@ -2,10 +2,11 @@
 % Please edit documentation in R/kde1d.R
 \name{dkde1d}
 \alias{dkde1d}
-\alias{pkde1d}
 \alias{pkde1d,}
-\alias{qkde1d}
 \alias{qkde1d,}
+\alias{rkde1d}
+\alias{pkde1d}
+\alias{qkde1d}
 \alias{rkde1d}
 \title{Working with a kde1d object}
 \usage{
@@ -39,11 +40,12 @@ and \code{\link{qkde1d}} respectively.
 \examples{
 data(wdbc)  # load data
 fit <- kde1d(wdbc[, 5])  # estimate density
-dkde1d(1000, fit)  # evaluate density estimate
-pkde1d(1000, fit)  # evaluate corresponding cdf
+dkde1d(1000, fit)        # evaluate density estimate
+pkde1d(1000, fit)        # evaluate corresponding cdf
+qkde1d(0.5, fit)         # quantile function
+hist(rkde1d(100, fit))   # simulate
 
 }
 \seealso{
 \code{\link{kde1d}}
 }
-

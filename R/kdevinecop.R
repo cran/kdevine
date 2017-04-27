@@ -11,7 +11,7 @@
 #' @param renorm.iter see \code{\link[kdecopula:kdecop]{kdecop}}.
 #' @param mult see \code{\link[kdecopula:kdecop]{kdecop}}.
 #' @param test.level significance level for independence test. If you provide a
-#' number in [0, 1], an independence test
+#' number in \eqn{[0, 1]}, an independence test
 #' (\code{\link[VineCopula:BiCopIndTest]{BiCopIndTest}}) will be performed for
 #' each pair; if the null hypothesis of independence cannot be rejected, the
 #' independence copula will be set for this pair. If \code{test.level = NA}
@@ -30,9 +30,14 @@
 #' \item{info}{additional information about the fit (if \code{info = TRUE}).}
 #'
 #' @references
-#' Nagler, T., Czado, C. (2016) \cr
-#' Evading the curse of dimensionality in nonparametric density estimation. \cr
-#' Journal of Multivariate Analysis 151, 69-89 (doi:10.1016/j.jmva.2016.07.003)
+#' Nagler, T., Czado, C. (2016) \cr Evading the curse of
+#' dimensionality in nonparametric density estimation with simplified vine
+#' copulas. \cr \emph{Journal of Multivariate Analysis 151, 69-89
+#' (doi:10.1016/j.jmva.2016.07.003)}
+#'
+#' Nagler, T., Schellhase, C. and Czado, C. (2017) \cr Nonparametric
+#' estimation of simplified vine copula models: comparison of methods
+#' arXiv:1701.00845
 #'
 #' Dissmann, J., Brechmann, E. C., Czado, C., and Kurowicka, D. (2013). \cr
 #' Selecting and estimating regular vine copulae and application to financial
@@ -46,11 +51,14 @@
 #' \code{\link[foreach]{foreach}}
 #'
 #' @examples
-#' data(wdbc, package = "kdecopula")                    # load data
-#' u <- VineCopula::pobs(wdbc[, 5:7], ties = "average") # rank-transform
-#'
-#' fit <- kdevinecop(u)                # estimate density
-#' dkdevinecop(c(0.1, 0.1, 0.1), fit)  # evaluate density estimate
+#' data(wdbc, package = "kdecopula")
+#' # rank-transform to copula data (margins are uniform)
+#' u <- VineCopula::pobs(wdbc[, 5:7], ties = "average")
+#' \dontshow{u <- u[1:30, ]}
+#' fit <- kdevinecop(u)                   # estimate density
+#' dkdevinecop(c(0.1, 0.1, 0.1), fit)     # evaluate density estimate
+#' contour(fit)                           # contour matrix (Gaussian scale)
+#' pairs(rkdevinecop(500, fit))           # plot simulated data
 #'
 #' @importFrom kdecopula kdecop hkdecop
 #' @importFrom VineCopula BiCopIndTest RVineMatrix TauMatrix
@@ -86,6 +94,7 @@ kdevinecop <- function(data, matrix = NA, method = "TLL2", renorm.iter = 3L,
         cores <- 1
 
     data <- as.matrix(data)
+    data <- pobs(data, ties.method = "first")
     matrix <- as.matrix(matrix)
 
     ## sanity checks
@@ -102,7 +111,6 @@ kdevinecop <- function(data, matrix = NA, method = "TLL2", renorm.iter = 3L,
 
     ## call structure selection routine if no matrix given
     if (any(is.na(matrix)) & d > 2) {
-        message("matrix is NA. Selecting structure...")
         return(structure_select2(data,
                                  type = 0,
                                  method = method,
