@@ -1,12 +1,11 @@
-f2362ab35000f9a008288240e21adc8f *DESCRIPTION
-9c25e1cdc3b5122842a6a70fab49a522 *LICENSE
-26769a2c2eac9e002c4a385c04a3f7d8 *NAMESPACE
-87d43db3302debb1b9c2780b6ab17910 *NEWS.md
+4c12ebb0666a2e9a8a779fbdc4c784c2 *DESCRIPTION
+77703c49cab02a49e2b68ac2b482db06 *NAMESPACE
+43f2e25daf2300ce0e24bb25997e5d3c *NEWS.md
 265bde4a0578f6a697576f22f9c4607d *R/RcppExports.R
 0c4b0412f6f591886a97a6c75b83d6c5 *R/contour.kdevinecop.R
 8893f95fd3a70dc37ae05c4b7b22cfca *R/drkdevinecop.R
 1e4b391615c77290a8394afcaf23169c *R/extract_names.R
-d3fecceb24948d0b5d2beeb656457137 *R/kde1d.R
+544cd58a1b8fa95a2fc0a4ad113702c7 *R/kde1d.R
 45cd1c8df3ae43837d3ec884d8b7616e *R/kdevine-package.R
 89ed46af432c5a77771cb50bf2949462 *R/kdevine.R
 be582a2d98f2aed62f19fc4afaa31d27 *R/kdevinecop.R
@@ -17,7 +16,7 @@ cb8bce0cc2e3abb8b8f1570bdbed9263 *README.md
 c581a9b5c13972f641adbf11e4d82de3 *man/dkde1d.Rd
 d587bcbcb27b2bd420867fe4281cfa4b *man/dkdevine.Rd
 56be3b5eb7fe77e2a6f738136b9e730d *man/dkdevinecop.Rd
-69906685616133790f752143108d9f07 *man/kde1d.Rd
+59fe49871998135eb2fa867057863b9b *man/kde1d.Rd
 e84ee8dcc7d403e8f08ba08270cd9dc3 *man/kdevine-package.Rd
 370cc56f86b6a8cef39ca226dd7fa27a *man/kdevine.Rd
 d7b0d3804f8fb9b94ab4ef8a2a7254c7 *man/kdevinecop.Rd

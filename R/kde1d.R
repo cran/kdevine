@@ -9,7 +9,7 @@
 #' @param xmin lower bound for the support of the density.
 #' @param xmax upper bound for the support of the density.
 #' @param bw bandwidth parameter; has to be a positive number or \code{NULL};
-#'   the latter calls an automatic selection routine.
+#'   the latter calls [`KernSmooth::dpik()`].
 #' @param bw_min minimum value for the bandwidth.
 #' @param ... unused.
 #'
@@ -31,7 +31,7 @@
 #' fit <- kde1d(wdbc[, 5])            # estimate density
 #' dkde1d(1000, fit)                  # evaluate density estimate
 #'
-#' @importFrom ks hpi
+#' @importFrom KernSmooth dpik
 #' @importFrom MASS bandwidth.nrd
 #' @importFrom cctools cont_conv
 #' @export
@@ -73,7 +73,7 @@ kde1d <- function(x, mult = 1, xmin = -Inf, xmax = Inf, bw = NULL, bw_min = 0, .
         bw <- NA
     if (is.na(bw)) {
         # plug in method
-        bw <- try(hpi(x_cc))
+        bw <- try(KernSmooth::dpik(x_cc))
         # if it fails: normal rule of thumb
         if (inherits(bw, "try-error"))
             bw <- MASS::bandwidth.nrd(x_cc)
@@ -239,13 +239,16 @@ plot.kde1d <- function(x, ...) {
     p.l <- if (is.nan(x$xmin)) min(x$x_cc) - x$bw else x$xmin
     p.u <- if (is.nan(x$xmax)) max(x$x_cc) + x$bw else x$xmax
     ev <- seq(p.l, p.u, l = 100)
-    if (length(attr(x$x_cc, "i_disc") == 1))
+    plot_type <- "l"  # for continuous variables, use a line plot
+    if (length(attr(x$x_cc, "i_disc")) == 1) {
         ev <- as.ordered(x$levels)
-    fhat <- dkde1d(expand_as_numeric(as.ordered(ev)), x)
+        plot_type <- "h"  # for discrete variables, use a histrogram
+    }
+    fhat <- dkde1d(expand_as_numeric(ev), x)
 
     pars <- list(x = ev,
                  y = fhat,
-                 type = "h",
+                 type = plot_type,
                  xlab = "x",
                  ylab = "density",
                  ylim = c(0, 1.1 * max(fhat)))
