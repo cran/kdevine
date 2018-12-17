@@ -62,18 +62,12 @@ kdevine <- function(x, mult_1d = NULL, xmin = NULL,
         xmin <- cctools::expand_vec(xmin, x)
     }
     if (!is.null(xmax)) {
-        xmax <- cctools::expand_vec(xmin, x)
+        xmax <- cctools::expand_vec(xmax, x)
     }
     bw <- list(...)$bw
     if (!is.null(bw)) {
         bw <- cctools::expand_vec(bw, x)
     }
-    if (is.null((list(...)$copula.type))) {
-        copula.type <- "kde"
-    } else {
-        copula.type <- list(...)$copula.type
-    }
-
 
     ## estimation of the marginals
     i_disc <- attr(x_cc, "i_disc")
@@ -221,6 +215,9 @@ dkdevine <- function(x, obj) {
 #'
 #' @param n number of observations.
 #' @param obj a \code{kdevine} object.
+#' @param quasi logical; the default (\code{FALSE}) returns pseudo-random
+#' numbers, use \code{TRUE} for quasi-random numbers (generalized Halton, only
+#' works for fully nonparametric fits).
 #'
 #' @return An \eqn{n x d} matrix of simulated data from the \code{kdevine}
 #' object.
@@ -242,10 +239,10 @@ dkdevine <- function(x, obj) {
 #'
 #' @importFrom VineCopula pobs RVineSim
 #' @export
-rkdevine <- function(n, obj) {
+rkdevine <- function(n, obj, quasi = FALSE) {
     # simulate from copula
     usim <- switch(obj$copula.type,
-                   "kde" = rkdevinecop(n, obj$vine),
+                   "kde" = rkdevinecop(n, obj$vine, quasi = quasi),
                    "parametric" = RVineSim(n, obj$vine))
     # use quantile transformation for marginals
     sapply(seq_len(ncol(usim)), function(i)
