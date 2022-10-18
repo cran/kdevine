@@ -1,10 +1,8 @@
 
 # kdevine
 
-[![Build status
-Linux](https://travis-ci.org/tnagler/kdevine.svg?branch=master)](https://travis-ci.org/tnagler/kdevine)
-[![Build status
-Windows](https://ci.appveyor.com/api/projects/status/epfs987wspjqkwlk/branch/master?svg=true)](https://ci.appveyor.com/project/tnagler/kdevine)
+[![R build
+status](https://github.com/tnagler/kdevine/workflows/R-CMD-check/badge.svg)](https://github.com/tnagler/kdevine)
 [![CRAN
 version](https://www.r-pkg.org/badges/version/kdevine)](https://cran.r-project.org/package=kdevine)
 [![License: GPL
@@ -12,9 +10,9 @@ v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org
 
 > **The kdevine package is no longer actively developed.** Consider
 > using  
-> \- the [kde1d](https://github.com/tnagler/kde1d) package for marginal
+> - the [kde1d](https://github.com/tnagler/kde1d) package for marginal
 > estimation,  
-> \- the functions `vine()` and `vinecop()` from the
+> - the functions `vine()` and `vinecop()` from the
 > [rvinecopulib](https://github.com/vinecopulib/rvinecopulib) package as
 > replacements for `kdevine()` and `kdevinecop()`.
 
@@ -27,30 +25,20 @@ let’s you choose from all its implemented methods. The package can
 handle discrete and categorical data via [continuous
 convolution](https://github.com/tnagler/cctools).
 
-  - [How to install](#how-to-install)
-  - [Functionality](#functionality)
-  - [References](#references)
+-   [How to install](#how-to-install)
+-   [Functionality](#functionality)
+-   [References](#references)
 
------
+------------------------------------------------------------------------
 
 ## How to install
 
 You can install:
 
-  - the stable release on CRAN:
-
-<!-- end list -->
+-   the stable release on CRAN:
 
 ``` r
 install.packages("kdevine")
-```
-
-  - the latest development version:
-
-<!-- end list -->
-
-``` r
-devtools::install_github("tnagler/kdevine")
 ```
 
 ## Functionality
@@ -60,34 +48,34 @@ the [API
 documentaion](https://tnagler.github.io/kdevine/reference/index.html).
 In short, the package provides the following functionality:
 
-  - Class `kdevine` and its methods:
-    
-      - `kdevine()`: Multivariate kernel density estimation based on
+-   Class `kdevine` and its methods:
+
+    -   `kdevine()`: Multivariate kernel density estimation based on
         vine copulas. Implements the estimator of (see, Nagler and
         Czado, 2016).
-    
-      - `dkdevine()`, `rkdevine()`: Density and simulation functions.
 
-  - Class `kdevinecop` and its methods:
-    
-      - `kdevinecop()`: Kernel estimator for the vine copula density
+    -   `dkdevine()`, `rkdevine()`: Density and simulation functions.
+
+-   Class `kdevinecop` and its methods:
+
+    -   `kdevinecop()`: Kernel estimator for the vine copula density
         (see, Nagler and Czado, 2016).
-    
-      - `dkdevinecop()`, `rkdevinecop()`: Density and simulation
+
+    -   `dkdevinecop()`, `rkdevinecop()`: Density and simulation
         functions.
-    
-      - `contour.kdevinecop()`: Matrix of contour plots of all
+
+    -   `contour.kdevinecop()`: Matrix of contour plots of all
         pair-copulas.
 
-  - Class `kde1d` and its methods:
-    
-      - `kde1d()`: Univariate kernel density estimation for bounded and
+-   Class `kde1d` and its methods:
+
+    -   `kde1d()`: Univariate kernel density estimation for bounded and
         unbounded support.
-    
-      - `dke1d()`, `pkde1d()`, `rkde1d()`: Density, cdf, and simulation
+
+    -   `dke1d()`, `pkde1d()`, `rkde1d()`: Density, cdf, and simulation
         functions.
-    
-      - `plot.kde1d()`, `lines.kde1d()`: Plots the estimated density.
+
+    -   `plot.kde1d()`, `lines.kde1d()`: Plots the estimated density.
 
 ## References
 
