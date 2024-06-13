@@ -1,4 +1,4 @@
-c91a75ac2b6a7e3c2d945451bca8997d *DESCRIPTION
+290350092dbc022fcd0288dac8d438d5 *DESCRIPTION
 77703c49cab02a49e2b68ac2b482db06 *NAMESPACE
 67a2fa32cf5be06aa369b1b3663c87ad *NEWS.md
 aa37edb9ba6dc774964ed293ea02562f *R/RcppExports.R
@@ -6,7 +6,7 @@ aa37edb9ba6dc774964ed293ea02562f *R/RcppExports.R
 8893f95fd3a70dc37ae05c4b7b22cfca *R/drkdevinecop.R
 1e4b391615c77290a8394afcaf23169c *R/extract_names.R
 660c2185a011a9193690463dee0c810d *R/kde1d.R
-79ac52cbf3f21780e5aac1914c5f1cb3 *R/kdevine-package.R
+d74c5a87c98fe5c3518c2b27ae3c3633 *R/kdevine-package.R
 2f9e76fcbee5544e23c2cda3a48bf136 *R/kdevine.R
 a91bf9a55389e9d71848dd1b9758c1ce *R/kdevinecop.R
 ab1af864dc17b6691a74c1f326c5e0f6 *R/structure_select2.R
@@ -17,7 +17,7 @@ d24dabd3e7099354777a448a5e509275 *README.md
 d587bcbcb27b2bd420867fe4281cfa4b *man/dkdevine.Rd
 4d7913eb1de75a3563515fea56934de1 *man/dkdevinecop.Rd
 51bcbc49e065abc52392fdf9ba7aabfa *man/kde1d.Rd
-a6846ad1fd23cfdd3fbc83fea1568f30 *man/kdevine-package.Rd
+2aa17602b55c871d3a6dc7dea326c0b3 *man/kdevine-package.Rd
 8fde1a7a0de322859edbd091c56db956 *man/kdevine.Rd
 1e8741e39fa8eeb4816d8a130e9e4dac *man/kdevinecop.Rd
 11bc54fb3dfc20acc30027efafe9bd6d *man/plot.kde1d.Rd
@@ -26,6 +26,6 @@ ca00703c20c598dc85ad18489d18790c *man/rkdevine.Rd
 2a6f9e9e044a78154d3cfda5936d6f48 *src/Makevars
 8d46d69896a1f1d31ed76035a0e49d67 *src/Makevars.win
 02200c506a19f9f219b707327b03e86a *src/RcppExports.cpp
-84816f2af8ca04dac149e16780300fc7 *src/evaluators.cpp
+6d080391cdd872d6bb4b59d2e9ad7e35 *src/evaluators.cpp
 07a48e353162717d06a60b178e80bef5 *tests/testthat.R
 549f7af342666d1ecbe94da3713c9501 *tests/testthat/test-for-discrete.R
